@@ -1,0 +1,23 @@
+name: Repository checks
+on:
+  pull_request:
+  push:
+    branches: [main, dev]
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  check:
+    name: publication and declared checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reject data, secrets and generated files in Git
+        run: python scripts/check-publication.py
+      - name: Verify documentation-only package boundary
+        run: python -c "from pathlib import Path; assert Path('README.md').is_file(); assert Path('CONTRIBUTING.md').is_file()"
