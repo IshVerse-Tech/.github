@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="profile/assets/ishverse-logo-primary-transparent.png" width="88" alt="IshVerse blue and gold mark" />
+</p>
+
 # IshVerse GitHub organization
 
 Public organization profile, shared contribution standards and community templates. Product code, company operations and shared engineering context live in their owning repositories.
