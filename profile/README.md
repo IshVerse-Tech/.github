@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/IshVerse-Tech/.github/main/profile/assets/ishverse-logo-primary-transparent.png" width="88" alt="IshVerse blue and gold mark" />
+  <img src="https://raw.githubusercontent.com/IshVerse-Tech/.github/dev/profile/assets/ishverse-logo-primary-transparent.png" width="88" alt="IshVerse blue and gold mark" />
 </p>
 <h1 align="center">IshVerse</h1>
 <p align="center"><strong>Research, information and a clearer understanding.</strong></p>
@@ -25,4 +25,4 @@ IshVerse is building tools that help people work with information, inspect its s
 
 Explore the public repositories available on this organization page. For contributions, start with the repository's guide and a focused issue; keep sensitive material out of public issues and pull requests.
 
-[Contribution workflow](https://github.com/IshVerse-Tech/.github/blob/main/CONTRIBUTING.md) · [Security reporting](https://github.com/IshVerse-Tech/.github/blob/main/SECURITY.md) · [Community conduct](https://github.com/IshVerse-Tech/.github/blob/main/CODE_OF_CONDUCT.md)
+[Contribution workflow](https://github.com/IshVerse-Tech/.github/blob/dev/CONTRIBUTING.md) · [Security reporting](https://github.com/IshVerse-Tech/.github/blob/dev/SECURITY.md) · [Community conduct](https://github.com/IshVerse-Tech/.github/blob/dev/CODE_OF_CONDUCT.md)
