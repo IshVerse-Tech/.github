@@ -1,14 +1,26 @@
-# Branch and review policy
+# Branch and merge policy
 
-| Repository | Current integration branch |
-| --- | --- |
-| ishverse-web | dev |
-| .github, core-api, data-platform, intelligence-platform, design-system, media-platform, company-hq, workspace | main |
+Every IshVerse repository uses the same two long-lived branches.
 
-Check the remote default branch before new work. Open focused issue-backed PRs from fresh short-lived branches. Use conventional commits and link companion PRs. The founder reviews, chooses when to squash merge and deletes branches afterward. Do not auto-merge, self-approve, force-push shared branches or deploy from a documentation instruction.
+| Branch | Role | Changes arrive by |
+| --- | --- | --- |
+| `dev` | Default and integration branch | Squash-merged feature PRs |
+| `main` | Release branch | Merge-commit release PRs from `dev` |
 
-An empty remote requires a base commit before PR comparison is possible. A content-free bootstrap commit may initialize the default branch; implementation and policy files remain in the review PR. This exception does not apply to repositories that already have history.
+## Feature flow
 
-Branch protection, rulesets, required check names and merge settings are administrative configuration. These documents do not assert those settings are enabled and this publication does not alter them. Recommend configuring protections after the required CI jobs exist and their names are verified.
+1. Open or reference an issue with the problem, acceptance criteria and exclusions.
+2. Branch from an up-to-date `dev`: `feature/`, `fix/`, `docs/`, `refactor/`, `security/` or `chore/` plus a kebab-case description.
+3. Open a PR into `dev` with a conventional title and `Closes #N` in the description when it completes the issue.
+4. Squash merge. Repository settings use the PR title as the commit subject and the PR description as the commit body, so the closing keyword is in the commit and the issue closes on merge.
+5. GitHub deletes the merged branch automatically. Delete the local copy and never reuse it.
 
-Cross-repository integration and recovery need their declared workspace/tools. Read each CI profile and actual results; do not equate a standalone build with complete product or customer acceptance.
+## Release flow
+
+Open a `dev` → `main` PR and merge it with a merge commit, so `main` stays an ancestor of `dev`. Releases, tags and deployments need explicit founder approval.
+
+## Repository settings
+
+All repositories default to `dev`, allow squash and merge commits, disallow rebase merges and delete branches on merge. Public repositories enforce rulesets on `dev` and `main`: no deletion or force-push, a PR is required and the repository CI check must pass. Private repositories cannot use rulesets on the current GitHub plan, so contributors follow the same flow by convention.
+
+An entirely empty remote may receive one content-free bootstrap commit so PRs have a comparison base. All real content goes through a reviewed PR.
